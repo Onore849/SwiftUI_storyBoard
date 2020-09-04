@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        
+        CustomController()
     }
 }
 
@@ -19,3 +20,21 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+struct CustomController: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<CustomController>) -> UIViewController {
+        
+        let storyboard = UIStoryboard(name: "Custom", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(identifier: "Home")
+        
+        return controller
+        
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<CustomController>) {
+ 
+    }
+}
+
+// you can see that the storyBoard is embedded eith SwiftUI....
